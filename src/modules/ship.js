@@ -34,18 +34,17 @@ const Ship = (id) => {
         if (ship_pieces[id].length <= 1){
             return isSunk(id);
         }
-        const position_reference = ship_pieces[id].find((cell) => JSON.stringify(cell) == JSON.stringify(position))
+        const position_reference = ship_pieces[id].findIndex((cell) => JSON.stringify(cell) == JSON.stringify(position))
         console.log('Here is the position reference, ', position_reference)
         ship_pieces[id].splice(position_reference,1)
         console.log('Here is the updated ship_pieces afterwards:', ship_pieces)
+        
         return;
     }
-
+    
     const get_ships = () => {
         return ship_pieces
     }
-
-    
 
     const hit = (id,position) => {
         let player = id;
@@ -57,7 +56,6 @@ const Ship = (id) => {
         }
         player.remove_piece(ship_name,ship_position)
         return true;
-
     }
 
     const isSunk = (ship) => {

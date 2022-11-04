@@ -26,11 +26,41 @@ const gameBoard = () => {
             player.hit(aibot, [x_coord,y_coord])
             console.log('AI bot ships after everything was updated/deleted', aibot.get_ships())
         }
+        check_winner(player,aibot)
         return;
         
     }
 
-    return {  player, aibot, update_coordinates, check_if_ship_hit  }
+    function check_winner(player_id,bot_id){
+        const player = player_id;
+        const bot = bot_id
+        let player_ships = player.get_ships()
+        let bot_ships = bot.get_ships()
+        let player_counter = 0;
+        let bot_counter = 0;
+        for (const property in player_ships){
+            if(property){
+                player_counter++
+            }
+        }
+        for (const property in bot_ships){
+            if(property){
+                bot_counter++
+            }
+        }
+        if (player_counter < 1 && bot_counter > 1 ){
+            console.log(`We have a winner. Its ${bot.id}`)
+            return bot.id;
+        }
+        if (player_counter > 1 && bot_counter < 1 ){
+            console.log(`We have a winner. Its ${player.id}`)
+            return player.id;
+        }
+        return false;
+    }
+
+
+    return {  player, aibot, update_coordinates, check_if_ship_hit, check_winner  }
 }
 
 export default gameBoard;

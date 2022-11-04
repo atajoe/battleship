@@ -7,6 +7,11 @@
     "watch": "webpack --watch",
     "test": "jest"
   },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/atajoe/battleship.git"
@@ -19,6 +24,9 @@
   },
   "homepage": "https://github.com/atajoe/battleship#readme",
   "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "babel": "^6.23.0",
+    "babel-jest": "^29.2.2",
     "jest": "^29.2.2",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0"

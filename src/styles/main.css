@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    border: 2px solid red;
 }
 
 body{
@@ -24,6 +23,7 @@ body{
 
 .title{
     margin: 0 auto;
+    padding: 2rem;
 }
 
 
@@ -246,6 +246,18 @@ button{
     justify-content: center;
     align-items: center;
     background-color: white;
+}
+
+.winner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.declare-winner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media screen and (max-width: 1140px) {
